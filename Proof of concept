@@ -1,0 +1,19 @@
+//Deploy the ERC20MaliciousDelayed contract to a test Ethereum network (e.g., Rinkeby, Ropsten, or a local development network).
+
+//Connect to the deployed contract using a web3 provider like MetaMask or ethers.js.
+
+//Call the transfer function of the deployed contract, specifying the recipient address (B) and the amount of tokens to transfer.
+
+
+// JavaScript code using ethers.js
+const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+const contractABI = [/* YOUR_CONTRACT_ABI */];
+const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+// Transfer tokens from address A to address B
+await contract.transfer(recipientAddress, amount);
+After the transfer is completed, check the allowances granted on address (B) to see if the predefined "thief" address (C) has been granted a massive allowance without explicit approval.
+
+// Check allowances granted on address B
+const allowance = await contract.allowance(senderAddress, thiefAddress);
+console.log(`Allowance granted to thief address: ${allowance}`);
